@@ -1,34 +1,26 @@
-﻿<polymer-element name="at-carbon-container">
+<link rel="import" href="../polymer/polymer.html">
+
+<polymer-element name="at-carbon-container">
   <template>
     <style>
       :host {
         width: 100%;
         height: 100%;
         box-sizing: border-box;
+        display:block;
       }
     </style>
-    <span id="wrapper"><content></content></span>
+    <content></content>
   </template>
 
   <script>
     Polymer('at-carbon-container', {
       publish: {
-        visible: { value: false, reflect: true }
-      },
-      visibleChanged: function () {
-        this.showhide();
-      },
-      attached: function () {
-        this.showhide();
-      },
-      showhide: function () {
-        if (this.visible) {
-          this.$.wrapper.style.display = "inline";
-        } else {
-          this.$.wrapper.style.display = "none";
-        }
+        hidden: { value: false, reflect: true },
+        layout: { value: false, reflect: true },
+        flex: { value: false, reflect: true },
+        fit: { value: false, reflect: true }
       }
-
     });
 
   </script>
